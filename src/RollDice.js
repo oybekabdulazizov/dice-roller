@@ -5,17 +5,16 @@ import './RollDice.css'
 
 class RollDice extends Component {
     static defaultProps = {
-        dice
+        diceLength: dice.length
     }
-
     state = {
-        die1: this.props.dice[0],
-        die2: this.props.dice[0]
+        die1: 0,
+        die2: 0
     }
 
     roll = () => {
-        const newDie1 = this.props.dice[Math.floor(Math.random() * this.props.dice.length)]; 
-        const newDie2 = this.props.dice[Math.floor(Math.random() * this.props.dice.length)];
+        const newDie1 = Math.floor(Math.random() * this.props.diceLength); 
+        const newDie2 = Math.floor(Math.random() * this.props.diceLength);
         this.setState({ die1: newDie1, die2: newDie2 }); 
     }
 
